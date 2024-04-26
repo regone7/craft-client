@@ -31,8 +31,8 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <div className="flex flex-col md:flex-row gap-1">
-                        <button className="btn btn-sm bg-green-300 hover:bg-cyan-300 text-white">Log In</button>
-                        <button className="btn btn-sm bg-green-300 hover:bg-cyan-300 text-white">Register</button>
+                        <Link to='/login'><button className="btn btn-sm bg-green-300 hover:bg-cyan-300 text-white w-20">Log In</button></Link>
+                        <Link to='/register'> <button className="btn btn-sm bg-green-300 hover:bg-cyan-300 text-white w-20">Register</button></Link>
 
                     </div>
 
