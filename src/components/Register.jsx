@@ -9,7 +9,7 @@ const Register = () => {
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false)
 
-    const { creatUser } = useContext(AuthContext)
+    const { creatUser,updateUserProfile } = useContext(AuthContext)
 
     const handelRegisterPg=(e)=>{
         e.preventDefault();
@@ -17,7 +17,7 @@ const Register = () => {
         const email = e.target.email.value;
         const photoURL = e.target.photoURL.value;
         const password = e.target.password.value;
-        console.log(email, password)
+        console.log(name, email, password)
 
         if (password.length < 6) {
             setError("Password must be at least 6 character")
@@ -34,12 +34,17 @@ const Register = () => {
         setError('')
 
         creatUser(email, password)
-            .then((result) => {
-                console.log(result.user);
+            .then(() => {
+                updateUserProfile(name, photoURL)
+                    .then(() => {
+                     console.log("success update")   
+                        
+                    })
 
             })
             .catch((error) => {
                 console.error(error)
+                
             })
 
     }

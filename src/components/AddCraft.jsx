@@ -1,6 +1,34 @@
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const AddCraft = () => {
+    const { user } = useContext(AuthContext)
+    const [selectedOption, setSelectedOption] = useState('');
+    
+    const handleChange = (event) => {
+        setSelectedOption(event.target.value);
+      };
+    const handelAddcrafts = (e) => {
+        e.preventDefault();
+        const name = user.displayName;
+        const email = user.email;
+        const item_name = e.target.item_name.value;
+        const subcategory_Name=selectedOption;
+        const short_description = e.target.short_description.value;
+        const photoURL = e.target.photoURL.value;
+        const price = e.target.price.value;
+        const rating = e.target.rating.value;
+        const customization = e.target.customization.value;
+        const processing_time = e.target.processing_time.value;
+        const srock_status = e.target.srock_status.value;
+        
+        const info={ name,email, item_name ,subcategory_Name,short_description,photoURL,price,rating ,customization,processing_time,srock_status}
+        console.log(info)
+
+
+
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -8,7 +36,19 @@ const AddCraft = () => {
                     <div className="card shrink-0 lg:w-[650px]  md:w-[450px] shadow-2xl ">
                         <h1 className="text-3xl text-center pt-5 font-bold text-sky-500">Add Craft Item!</h1>
                         <div className="card-body">
-                            <form >
+                            <form onSubmit={handelAddcrafts} >
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text"> Name</span>
+                                    </label>
+                                    <input type="text" defaultValue={user?.displayName} className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="email" defaultValue={user?.email} className="input input-bordered" required />
+                                </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Item Name</span>
@@ -16,12 +56,28 @@ const AddCraft = () => {
                                     <input type="text" placeholder="Example: Painting and Drawing" name="item_name" className="input input-bordered" required />
                                 </div>
 
-                                <div className="form-control">
+                                <div className="form-control ">
                                     <label className="label">
                                         <span className="label-text">Subcategory Name</span>
                                     </label>
-                                    <input type="text" placeholder="Text" name="subcategory_Name" className="input input-bordered" required />
-                                    <small className="text-gray-400" >Example: Landscape Painting/Portrait Drawing/Watercolour Painting/Oil Painting/Charcoal Sketching/Cartoon Drawing </small>
+
+                                    <select className=" h-12 rounded-md" value={selectedOption} onChange={handleChange} required>
+                                        
+                                        <option  value="Landscape_Painting">Landscape Painting</option>
+                                        <option value="Portrait_Drawing">Portrait Drawing</option>
+                                        <option value="Watercolour_Painting">Watercolour Painting</option>
+                                        <option value="Oil_Painting">Oil Painting</option>
+                                        <option value="Charcoal_Sketching">Charcoal Sketching</option>
+                                        <option value="Cartoon_Drawing">Cartoon Drawing</option>
+                                    </select>
+                                </div>
+
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Short Description</span>
+                                    </label>
+                                    <input type="text" placeholder="Write description" name="short_description" className="input input-bordered" required />
+
                                 </div>
 
                                 <div className="form-control">
@@ -42,13 +98,13 @@ const AddCraft = () => {
                                         <label className="label">
                                             <span className="label-text">Rating</span>
                                         </label>
-                                        <input type="text" placeholder="rating" name="item_name" className="input input-bordered " required />
+                                        <input type="text" placeholder="rating" name="rating" className="input input-bordered " required />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Customization</span>
                                         </label>
-                                        <input type="text" placeholder="Yes/No" name="item_name" className="input input-bordered" required />
+                                        <input type="text" placeholder="Yes/No" name="customization" className="input input-bordered" required />
                                     </div>
 
                                 </div>
@@ -63,7 +119,7 @@ const AddCraft = () => {
                                         <label className="label">
                                             <span className="label-text">Stock Status</span>
                                         </label>
-                                        <input type="text" placeholder="In stock/Made to Order" name="price" className="input input-bordered" required />
+                                        <input type="text" placeholder="In stock/Made to Order" name="srock_status" className="input input-bordered" required />
                                     </div>
                                 </div>
 
