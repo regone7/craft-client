@@ -10,7 +10,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const LogIn = () => {
     const [showPasswords, setShowPasswords] = useState(false)
 
-    const {signInUsers,googleLogin}= useContext(AuthContext)
+    const {signInUsers,googleLogin,githubLogin}= useContext(AuthContext)
 
     const handelLoginPg=(e)=>{
         e.preventDefault();
@@ -39,6 +39,17 @@ const LogIn = () => {
             .catch(error => {
                 console.error(error)
 
+            })
+    }
+    const handelGithublogin = () => {
+        githubLogin()
+            .then((result) => {
+                console.log(result.user)
+                console.log("github success")
+
+            })
+            .catch(error => {
+                console.error(error)
             })
     }
     return (
@@ -83,7 +94,7 @@ const LogIn = () => {
                         <div className="divider divider-gray-100 px-9">OR Login With </div>
                         <div className="px-9 flex flex-col w-full gap-3 mb-12">
                             <button onClick={handelgoogleLogin}  className="btn btn-outline btn-info "><FcGoogle className="text-3xl" /> Google</button>
-                            <button  className="btn btn-outline btn-info "><FaGithub className="text-3xl text-black" />  Github</button>
+                            <button onClick={handelGithublogin} className="btn btn-outline btn-info "><FaGithub className="text-3xl text-black" />  Github</button>
                         </div>
 
                     </div>

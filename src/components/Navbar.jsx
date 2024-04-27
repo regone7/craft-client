@@ -1,7 +1,19 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Navbar = () => {
+    const { user,signOutUser } = useContext(AuthContext)
+    const handelLogout = () => {
+        signOutUser()
+            .then(() => { 
+                console.log("sign out")
+             })
+            .catch(error => {
+                console.error(error);
+            })
+    }
     const links = <>
         <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-y-2 border-green-300  w-12 h-9 flex justify-center items-center' : 'font-bold w-12 h-9 flex justify-center items-center'}>Home</NavLink>
     </>
@@ -20,7 +32,7 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl font-bold bg-gradient-to-r from-rose-500 via-green-300 to-green-500 text-transparent bg-clip-text">Sketchbook</a>
+                    <a className="btn btn-ghost text-2xl font-bold bg-gradient-to-r from-rose-500 via-green-300 to-green-500 text-transparent bg-clip-text -ml-7 md:-ml-3">Sketchbook</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -30,11 +42,21 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="flex flex-col md:flex-row gap-1">
-                        <Link to='/login'><button className="btn btn-sm bg-green-300 hover:bg-cyan-300 text-white w-20">Log In</button></Link>
-                        <Link to='/register'> <button className="btn btn-sm bg-green-300 hover:bg-cyan-300 text-white w-20">Register</button></Link>
 
-                    </div>
+                    {
+                        user ? (<><div className="flex gap-3">
+                            <div className="tooltip  z-[10] hover:tooltip-bottom " data-tip={user?.displayName || "Name Not Found"} >
+                                <button className="btn btn-sm btn-circle"><img className="rounded-full w-full h-full" src={user?.photoURL || 'https://i.ibb.co/vwWq42z/pexels-pixabay-162137.jpg'} alt="" /></button>
+                            </div>
+                            <div><button onClick={handelLogout} className="btn btn-sm bg-lime-300 hover:bg-lime-500">Log out</button></div>
+                        </div></>) : (<><div className="flex flex-col md:flex-row gap-1">
+                            <Link to='/login'><button className="btn btn-sm bg-green-300 hover:bg-cyan-300 text-white w-20">Log In</button></Link>
+                            <Link to='/register'> <button className="btn btn-sm bg-green-300 hover:bg-cyan-300 text-white w-20">Register</button></Link>
+
+                        </div></>
+                        )
+                    }
+
 
                 </div>
             </div>
