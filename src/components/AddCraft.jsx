@@ -5,16 +5,16 @@ import { AuthContext } from "../provider/AuthProvider";
 const AddCraft = () => {
     const { user } = useContext(AuthContext)
     const [selectedOption, setSelectedOption] = useState('');
-    
+
     const handleChange = (event) => {
         setSelectedOption(event.target.value);
-      };
+    };
     const handelAddcrafts = (e) => {
         e.preventDefault();
         const name = user.displayName;
         const email = user.email;
         const item_name = e.target.item_name.value;
-        const subcategory_Name=selectedOption;
+        const subcategory_Name = selectedOption;
         const short_description = e.target.short_description.value;
         const photoURL = e.target.photoURL.value;
         const price = e.target.price.value;
@@ -22,9 +22,21 @@ const AddCraft = () => {
         const customization = e.target.customization.value;
         const processing_time = e.target.processing_time.value;
         const srock_status = e.target.srock_status.value;
-        
-        const info={ name,email, item_name ,subcategory_Name,short_description,photoURL,price,rating ,customization,processing_time,srock_status}
-        console.log(info)
+
+        const infoCraft = { name, email, item_name, subcategory_Name, short_description, photoURL, price, rating, customization, processing_time, srock_status }
+        console.log(infoCraft)
+
+        fetch('http://localhost:5000/craft', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(infoCraft)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
 
 
 
@@ -53,7 +65,7 @@ const AddCraft = () => {
                                     <label className="label">
                                         <span className="label-text">Item Name</span>
                                     </label>
-                                    <input type="text" placeholder="Example: Painting and Drawing" name="item_name" className="input input-bordered" required />
+                                    <input type="text" placeholder="Write.." name="item_name" className="input input-bordered" required />
                                 </div>
 
                                 <div className="form-control ">
@@ -62,8 +74,8 @@ const AddCraft = () => {
                                     </label>
 
                                     <select className=" h-12 rounded-md" value={selectedOption} onChange={handleChange} required>
-                                        
-                                        <option  value="Landscape_Painting">Landscape Painting</option>
+                                        <option value="">Select option</option>
+                                        <option value="Landscape_Painting">Landscape Painting</option>
                                         <option value="Portrait_Drawing">Portrait Drawing</option>
                                         <option value="Watercolour_Painting">Watercolour Painting</option>
                                         <option value="Oil_Painting">Oil Painting</option>
