@@ -15,7 +15,7 @@ const Navbar = () => {
             })
     }
     const links = <>
-        <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-y-2 border-green-300  w-12 h-9 flex justify-center items-center' : 'font-bold w-12 h-9 flex justify-center items-center'}>Home</NavLink>
+        <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-y-2 border-green-300  w-12 h-9 flex justify-center items-center text-sm' : 'font-bold w-12 h-9 flex justify-center items-center text-sm'}>Home</NavLink>
     </>
     return (
         <div>
