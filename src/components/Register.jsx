@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Register = () => {
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false)
+
+    const { creatUser } = useContext(AuthContext)
 
     const handelRegisterPg=(e)=>{
         e.preventDefault();
@@ -29,6 +32,15 @@ const Register = () => {
             return;
         }
         setError('')
+
+        creatUser(email, password)
+            .then((result) => {
+                console.log(result.user);
+
+            })
+            .catch((error) => {
+                console.error(error)
+            })
 
     }
     return (

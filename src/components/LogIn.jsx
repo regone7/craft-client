@@ -1,19 +1,45 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const LogIn = () => {
     const [showPasswords, setShowPasswords] = useState(false)
+
+    const {signInUsers,googleLogin}= useContext(AuthContext)
 
     const handelLoginPg=(e)=>{
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email,password)
+
+        signInUsers(email, password)
+            .then(result => {
+                console.log(result.user)
+                console.log('success')
+               
+            })
+            .catch(error => {
+                console.error(error)
+                
+            })
+    }
+    const handelgoogleLogin = () => {
+        googleLogin()
+            .then((result) => {
+                console.log(result.user)
+                console.log("google success")
+                
+            })
+            .catch(error => {
+                console.error(error)
+
+            })
     }
     return (
         <div>
@@ -56,7 +82,7 @@ const LogIn = () => {
 
                         <div className="divider divider-gray-100 px-9">OR Login With </div>
                         <div className="px-9 flex flex-col w-full gap-3 mb-12">
-                            <button  className="btn btn-outline btn-info "><FcGoogle className="text-3xl" /> Google</button>
+                            <button onClick={handelgoogleLogin}  className="btn btn-outline btn-info "><FcGoogle className="text-3xl" /> Google</button>
                             <button  className="btn btn-outline btn-info "><FaGithub className="text-3xl text-black" />  Github</button>
                         </div>
 
