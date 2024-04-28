@@ -14,15 +14,20 @@ import AuthProvider from './provider/AuthProvider.jsx';
 import AddCraft from './components/AddCraft.jsx';
 import AllArtCraft from './pages/AllArtCraft.jsx';
 import AllcraftDitels from './pages/AllcraftDitels.jsx';
+import Errorpage from './components/Errorpage.jsx';
+import MyartCraft from './pages/MyartCraft.jsx';
+import CraftItemsix from './components/CraftItemsix.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<Errorpage></Errorpage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/craft')
       },
       {
         path: "/login",
@@ -36,6 +41,7 @@ const router = createBrowserRouter([
         path: "/addcraft",
         element: <AddCraft></AddCraft>,
       },
+      
       {
         path: "/alladdcraft",
         element: <AllArtCraft></AllArtCraft>,
@@ -46,6 +52,17 @@ const router = createBrowserRouter([
         element: <AllcraftDitels></AllcraftDitels>,
         loader:({params})=> fetch(`http://localhost:5000/craft/${params.id}`)
       },
+      {
+        path: "/myartcraft ",
+        element: <MyartCraft></MyartCraft>,
+        // loader: () => fetch('http://localhost:5000/craft')
+      },
+      // {
+      //   path: "/myartcraft/:email",
+      //   element: <MyartCraft></MyartCraft>,
+      //   loader:({params})=> fetch(`http://localhost:5000/craft/${params.email}`)
+
+      // },
     ],
   },
 ]);
