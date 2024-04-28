@@ -9,7 +9,7 @@ const MyartCraft = () => {
     // console.log(mycraft)
     const {user}= useContext(AuthContext)
     const [emsearch, setEmsearch]=useState([])
-    console.log(user?.email)
+    // console.log(user?.email)
     const[users,setUsers]=useState(false)
     useEffect(()=>{
         fetch(`http://localhost:5000/crafts/${user?.email}`)
@@ -65,7 +65,7 @@ const MyartCraft = () => {
 
                         <div key={myct._id} className="card card-side bg-base-100 shadow-xl ">
                             <figure><img className="h-full " src={myct.photoURL} alt="" /></figure>
-                            <div className="card-body md:h-[250px] ">
+                            <div className="card-body md:h-[350px] ">
                                 <h2 className="card-title">{myct.item_name}</h2>
                                 <p>Price: {myct.price}</p>
                                 <p>Rating: {myct.rating}</p>
@@ -73,7 +73,7 @@ const MyartCraft = () => {
                                 <p>Stock Status: {myct.srock_status}</p>
 
                                 <div className="flex flex-col md:flex-row gap-2">
-                                    <Link to={`/updatecrft/${myct._id}`} ><button className="btn btn-sm bg-green-200 text-black hover:bg-green-400 ">Update</button></Link>
+                                    <Link to={`/updatecrfts/${myct._id}`} ><button className="btn btn-sm bg-green-200 text-black hover:bg-green-400 ">Update</button></Link>
                                     <button onClick={()=> handelDelete(myct._id)} className="btn btn-sm text-black bg-red-200 hover:bg-red-400 ">Delete</button>
                                 </div>
 

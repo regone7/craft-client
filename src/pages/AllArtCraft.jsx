@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const AllArtCraft = () => {
     const allcraft = useLoaderData()
-    console.log(allcraft)
+    // console.log(allcraft)
     
     return (
         <div>

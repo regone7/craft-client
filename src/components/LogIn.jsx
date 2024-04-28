@@ -1,16 +1,20 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const LogIn = () => {
     const [showPasswords, setShowPasswords] = useState(false)
 
-    const {signInUsers,googleLogin,githubLogin}= useContext(AuthContext)
+    const {signInUsers,googleLogin,githubLogin,setLoading}= useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handelLoginPg=(e)=>{
         e.preventDefault();
@@ -22,10 +26,17 @@ const LogIn = () => {
             .then(result => {
                 console.log(result.user)
                 console.log('success')
+                toast.success("Succesfully login")
+                e.target.reset()
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 1500);
+                setLoading(false)
                
             })
             .catch(error => {
                 console.error(error)
+                toast.error("Invalid try again")
                 
             })
     }
@@ -34,6 +45,10 @@ const LogIn = () => {
             .then((result) => {
                 console.log(result.user)
                 console.log("google success")
+                toast.success("Succesfully login")
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 1500);
                 
             })
             .catch(error => {
@@ -46,6 +61,10 @@ const LogIn = () => {
             .then((result) => {
                 console.log(result.user)
                 console.log("github success")
+                toast.success("Succesfully login")
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 1500);
 
             })
             .catch(error => {
@@ -99,6 +118,7 @@ const LogIn = () => {
 
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );

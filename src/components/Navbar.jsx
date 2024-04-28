@@ -1,14 +1,21 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // {/* <NavLink to={`/myartcraft/${user?.email}`} className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-y-2 border-green-300  w-28 h-7 flex justify-center items-center text-sm' : 'font-bold w-28 h-7 flex justify-center items-center text-sm'}>My Art & Craft</NavLink> */}
 
 const Navbar = () => {
     const { user,signOutUser } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handelLogout = () => {
         signOutUser()
             .then(() => { 
                 console.log("sign out")
+                toast.success("Succesfully logout")
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 1500);
              })
             .catch(error => {
                 console.error(error);
@@ -62,6 +69,7 @@ const Navbar = () => {
 
 
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );

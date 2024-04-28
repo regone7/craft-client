@@ -7,7 +7,7 @@ import { MdAccessTime } from "react-icons/md";
 const AllcraftDitels = () => {
     const allditels = useLoaderData()
     const { name, email, item_name, subcategory_Name, short_description, photoURL, price, rating, customization, processing_time, srock_status } = allditels;
-    console.log(allditels);
+    // console.log(allditels);
 
     return (
         <div>

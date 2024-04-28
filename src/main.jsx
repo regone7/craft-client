@@ -17,6 +17,7 @@ import AllcraftDitels from './pages/AllcraftDitels.jsx';
 import Errorpage from './components/Errorpage.jsx';
 import MyartCraft from './pages/MyartCraft.jsx';
 import Updatecraft from './components/Updatecraft.jsx';
+import Privateroutess from './privateroutes/Privateroutess.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addcraft",
-        element: <AddCraft></AddCraft>,
+        element: <Privateroutess><AddCraft></AddCraft></Privateroutess>,
       },
       
       {
@@ -49,18 +50,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/allcraftdtls/:id",
-        element: <AllcraftDitels></AllcraftDitels>,
+        element: <Privateroutess><AllcraftDitels></AllcraftDitels></Privateroutess>,
         loader:({params})=> fetch(`http://localhost:5000/craft/${params.id}`)
       },
       {
         path: "/myartcraft ",
-        element: <MyartCraft></MyartCraft>,
+        element: <Privateroutess><MyartCraft></MyartCraft></Privateroutess>,
         
       },
       {
-        path: "/updatecrft/:id ",
+        path: "/updatecrfts/:id ",
         element: <Updatecraft></Updatecraft>,
-        loader:({params})=> fetch(`http://localhost:5000/craftss/${params.id}`)
+        // loader:({params})=> fetch(`http://localhost:5000/craftss/${params.id}`)
         
       },
       // {

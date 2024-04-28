@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false)
 
-    const { creatUser,updateUserProfile } = useContext(AuthContext)
+    const { creatUser,updateUserProfile,setLoading } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const handelRegisterPg=(e)=>{
         e.preventDefault();
@@ -37,13 +40,19 @@ const Register = () => {
             .then(() => {
                 updateUserProfile(name, photoURL)
                     .then(() => {
-                     console.log("success update")   
+                     console.log("success update") 
+                     toast.success("Succesfully Register")
+                        setTimeout(()=>{
+                            navigate('/');
+                        }, 1500);
+                        setLoading(false)  
                         
                     })
 
             })
             .catch((error) => {
                 console.error(error)
+                toast.error(" Invalid ")
                 
             })
 
@@ -107,7 +116,7 @@ const Register = () => {
 
                     </div>
                 </div>
-                
+                <ToastContainer />
             </div>
         </div>
     );
