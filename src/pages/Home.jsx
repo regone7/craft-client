@@ -1,5 +1,4 @@
 import { Link, useLoaderData } from "react-router-dom";
-import CraftItemsix from "../components/CraftItemsix";
 import Sliders from "../components/Sliders";
 
 const Home = () => {

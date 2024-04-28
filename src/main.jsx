@@ -16,7 +16,7 @@ import AllArtCraft from './pages/AllArtCraft.jsx';
 import AllcraftDitels from './pages/AllcraftDitels.jsx';
 import Errorpage from './components/Errorpage.jsx';
 import MyartCraft from './pages/MyartCraft.jsx';
-import CraftItemsix from './components/CraftItemsix.jsx';
+import Updatecraft from './components/Updatecraft.jsx';
 
 const router = createBrowserRouter([
   {
@@ -55,14 +55,22 @@ const router = createBrowserRouter([
       {
         path: "/myartcraft ",
         element: <MyartCraft></MyartCraft>,
-        // loader: () => fetch('http://localhost:5000/craft')
+        
+      },
+      {
+        path: "/updatecrft/:id ",
+        element: <Updatecraft></Updatecraft>,
+        loader:({params})=> fetch(`http://localhost:5000/craftss/${params.id}`)
+        
       },
       // {
-      //   path: "/myartcraft/:email",
-      //   element: <MyartCraft></MyartCraft>,
-      //   loader:({params})=> fetch(`http://localhost:5000/craft/${params.email}`)
-
+      //   path: "/updatecrft ",
+      //   element: <Updatecraft></Updatecraft>,
+        
+        
       // },
+      
+      
     ],
   },
 ]);
