@@ -61,13 +61,13 @@ const AddCraft = () => {
                                     <label className="label">
                                         <span className="label-text"> Name</span>
                                     </label>
-                                    <input type="text" defaultValue={user?.displayName} className="input input-bordered" required />
+                                    <input type="text" defaultValue={user?.displayName} className="input input-bordered" disabled />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" defaultValue={user?.email} className="input input-bordered" required />
+                                    <input type="email" defaultValue={user?.email} className="input input-bordered" disabled />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -80,7 +80,6 @@ const AddCraft = () => {
                                     <label className="label">
                                         <span className="label-text">Subcategory Name</span>
                                     </label>
-
                                     <select className=" h-12 rounded-md" value={selectedOption} onChange={handleChange} required>
                                         <option value="">Select option</option>
                                         <option value="Landscape_Painting">Landscape Painting</option>

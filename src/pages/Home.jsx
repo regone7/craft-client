@@ -1,5 +1,8 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Sliders from "../components/Sliders";
+import UserReview from "../components/UserReview";
+import Contructus from "../components/Contructus";
+import Designstext from "../components/Designstext";
 
 const Home = () => {
     const craftsix = useLoaderData()
@@ -9,6 +12,9 @@ const Home = () => {
             <div >
                 <Sliders></Sliders>
             </div>
+            <div className="container mx-auto font-bold text-2xl text-center my-5">
+                <Designstext></Designstext>
+            </div>
             <div className="container mx-auto">
                 <h1 className="text-3xl text-center font-bold mt-5 mb-3">Craft Items</h1>
                 <div >
@@ -17,9 +23,9 @@ const Home = () => {
                         {
                             craftsix.slice(0, 6).map(myctsix =>
 
-                                <div key={myctsix._id} className="card card-side bg-base-100 shadow-xl md:h-[300px]">
+                                <div key={myctsix._id} className="card card-side bg-base-100 shadow-xl md:h-[350px]">
                                     <figure><img className="h-1/2 w-full " src={myctsix.photoURL} alt="" /></figure>
-                                    <div className="card-body md:h-80 lg:h-[300px] ">
+                                    <div className="card-body md:h-80 lg:h-[350px] ">
                                         <h2 className="card-title">{myctsix.item_name}</h2>
                                         <p>Price: {myctsix.price}</p>
                                         <p>Rating: {myctsix.rating}</p>
@@ -37,6 +43,12 @@ const Home = () => {
                         }
                     </div>
                 </div>
+            </div>
+            <div >
+                <UserReview></UserReview>
+            </div>
+            <div>
+                <Contructus></Contructus>
             </div>
         </div>
     );
