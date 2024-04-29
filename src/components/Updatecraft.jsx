@@ -4,25 +4,26 @@ import { useLoaderData, useParams } from 'react-router-dom';
 
 const Updatecraft = () => {
     const [selectedOption, setSelectedOption] = useState('');
-    const [updt,setUpdt]= useState('')
+    // const [updt,setUpdt]= useState('')
     const handleChange = (event) => {
         setSelectedOption(event.target.value);
     };
-    // const loaderupdate=useLoaderData()
-    // console.log(loaderupdate)
-    const { id } = useParams()
-    console.log(id)
-    useEffect(() => {
-        fetch(`http://localhost:5000/craftss/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data)
-                setUpdt(data)
-            })
-    }, [id])
+    const loaderupdate=useLoaderData()
+    console.log(loaderupdate)
+    // const { id } = useParams()
+    
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/craftss/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             // console.log(data)
+    //             setUpdt(data)
+    //         })
+    // }, [id])
 
-
+    // console.log(updt)
     const handelUpdate=(e)=>{
+        e.preventDefault();
         const item_name = e.target.item_name.value;
         const subcategory_Name = selectedOption;
         const short_description = e.target.short_description.value;
@@ -35,13 +36,20 @@ const Updatecraft = () => {
 
         const upinfo={ item_name, subcategory_Name, short_description, photoURL, price, rating, customization, processing_time, srock_status }
         console.log(upinfo)
+        // console.log(id)
         useEffect(() => {
-            fetch(`http://localhost:5000/updates/${id}`,{
+            fetch(`http://localhost:5000/updatesinfo/${loaderupdate._id}`,{
                 method:'PUT',
                 headers: {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(upinfo)
+            })
+            .then(res => res.json())
+            .then(data => {
+                 console.log(data)
+                 console.log("success")
+                
             })
                 
         }, [])
@@ -59,7 +67,7 @@ const Updatecraft = () => {
                                     <label className="label">
                                         <span className="label-text">Item Name</span>
                                     </label>
-                                    <input type="text" defaultValue={updt.item_name} placeholder="Write.." name="item_name" className="input input-bordered" required />
+                                    <input type="text"  placeholder="Write.." name="item_name" className="input input-bordered" required />
                                 </div>
 
                                 <div className="form-control ">

@@ -57,17 +57,19 @@ const AddCraft = () => {
                         <h1 className="text-3xl text-center pt-5 font-bold text-sky-500">Add Craft Item!</h1>
                         <div className="card-body">
                             <form onSubmit={handelAddcrafts} >
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text"> Name</span>
-                                    </label>
-                                    <input type="text" defaultValue={user?.displayName} className="input input-bordered" disabled />
-                                </div>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Email</span>
-                                    </label>
-                                    <input type="email" defaultValue={user?.email} className="input input-bordered" disabled />
+                                <div className="flex w-full flex-col md:flex-row">
+                                    <div className="form-control ">
+                                        <label className="label">
+                                            <span className="label-text"> Name</span>
+                                        </label>
+                                        <input type="text" defaultValue={user?.displayName} className="input input-bordered" disabled />
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Email</span>
+                                        </label>
+                                        <input type="email" defaultValue={user?.email} className="input input-bordered" disabled />
+                                    </div>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">

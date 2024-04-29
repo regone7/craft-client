@@ -15,9 +15,9 @@ const UserReview = () => {
                                 <div className="flex-1 my-2">
                                     <p className="text-xl font-semibold leading-snug">Leroy Jenkins</p>
                                     <Slide direction={'up'}>
-                                        <p>I will animate only the first time you see me</p>
+                                        <p>One of the beautiful aspects of painting and drawing is the endless room for exploration and growth.</p>
                                     </Slide>
-                                    <p>One of the beautiful aspects of painting and drawing is the endless room for exploration and growth.</p>
+
                                 </div>
 
                             </div>
@@ -26,9 +26,8 @@ const UserReview = () => {
                                 <div className="flex-1 my-4">
                                     <p className="text-xl font-semibold leading-snug">Leroy Jenkins</p>
                                     <Slide direction={'up'}>
-                                        <p>I will animate only the first time you see me</p>
+                                        <p>As you practice and refine your skills, you'll discover new techniques, styles, and subjects that inspire you. </p>
                                     </Slide>
-                                    <p>As you practice and refine your skills, you'll discover new techniques, styles, and subjects that inspire you. </p>
                                 </div>
 
                             </div>
@@ -38,9 +37,9 @@ const UserReview = () => {
                                 <div className="flex-1 my-2">
                                     <p className="text-xl font-semibold leading-snug">Leroy Jenkins</p>
                                     <Slide direction={'up'}>
-                                        <p>I will animate only the first time you see me</p>
+                                        <p>When choosing painting and drawing tools, consider factors such as your budget, preferred medium, and intended use.</p>
                                     </Slide>
-                                    <p>When choosing painting and drawing tools, consider factors such as your budget, preferred medium, and intended use.</p>
+
                                 </div>
 
                             </div>
@@ -49,9 +48,8 @@ const UserReview = () => {
                                 <div className="flex-1 my-4">
                                     <p className="text-xl font-semibold leading-snug">Leroy Jenkins</p>
                                     <Slide direction={'up'}>
-                                        <p>I will animate only the first time you see me</p>
+                                        <p>When choosing painting and drawing tools, consider factors such as your budget, preferred medium, and intended use.</p>
                                     </Slide>
-                                    <p>When choosing painting and drawing tools, consider factors such as your budget, preferred medium, and intended use.</p>
                                 </div>
 
                             </div>
