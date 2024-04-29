@@ -23,7 +23,7 @@ const Home = () => {
                         {
                             craftsix.slice(0, 6).map(myctsix =>
 
-                                <div key={myctsix._id} className="card card-side bg-base-100 shadow-xl md:h-[350px]">
+                                <div key={myctsix._id} className="card card-side   bg-base-100 shadow-xl md:h-[350px]">
                                     <figure><img className="h-1/2 w-full " src={myctsix.photoURL} alt="" /></figure>
                                     <div className="card-body md:h-80 lg:h-[350px] ">
                                         <h2 className="card-title">{myctsix.item_name}</h2>
