@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Updatecraft = () => {
     const [selectedOption, setSelectedOption] = useState('');
@@ -37,23 +38,29 @@ const Updatecraft = () => {
         const upinfo={ item_name, subcategory_Name, short_description, photoURL, price, rating, customization, processing_time, srock_status }
         console.log(upinfo)
         // console.log(id)
-        useEffect(() => {
-            fetch(`http://localhost:5000/updatesinfo/${loaderupdate._id}`,{
-                method:'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(upinfo)
-            })
-            .then(res => res.json())
-            .then(data => {
-                 console.log(data)
-                 console.log("success")
-                
-            })
-                
-        }, [])
+        fetch(`http://localhost:5000/updatesinfo/${loaderupdate._id}`,{
+            method:'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(upinfo)
+        })
+        .then(res => res.json())
+        .then(data => {
+             console.log(data)
+             console.log("success")
+             if(data.matchedCount>0){
+                Swal.fire({
+                    title: "Update!",
+                    text: "Succesfully  Updated.",
+                    icon: "success"
+                  });
+             }
+            
+        })
+       
     }
+    
 
     return (
         <div>
