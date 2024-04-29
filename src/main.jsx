@@ -18,6 +18,7 @@ import Errorpage from './components/Errorpage.jsx';
 import MyartCraft from './pages/MyartCraft.jsx';
 import Updatecraft from './components/Updatecraft.jsx';
 import Privateroutess from './privateroutes/Privateroutess.jsx';
+import CategoriesArt from './components/CategoriesArt.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
         loader:({params})=> fetch(`http://localhost:5000/craft/${params.id}`)
       },
       {
-        path: "/myartcraft ",
+        path: "/myartcrafts",
         element: <Privateroutess><MyartCraft></MyartCraft></Privateroutess>,
         
       },
@@ -65,12 +66,13 @@ const router = createBrowserRouter([
         
         
       },
-      // {
-      //   path: "/updatecrft ",
-      //   element: <Updatecraft></Updatecraft>,
+      {
+        path: "/categoriesart",
+        element: <CategoriesArt></CategoriesArt>,
+        loader: ()=> fetch('http://localhost:5000/categories'),
         
         
-      // },
+      },
       
       
     ],

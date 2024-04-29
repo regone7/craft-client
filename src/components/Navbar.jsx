@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// {/* <NavLink to={`/myartcraft/${user?.email}`} className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-y-2 border-green-300  w-28 h-7 flex justify-center items-center text-sm' : 'font-bold w-28 h-7 flex justify-center items-center text-sm'}>My Art & Craft</NavLink> */}
+
 
 const Navbar = () => {
     const [theme, setTheme] = useState('light')
@@ -43,7 +43,7 @@ const Navbar = () => {
         <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white  border-b-2 border-green-300  w-12 h-7 flex justify-center items-center text-sm' : 'font-bold w-12 h-7 flex justify-center items-center text-sm'}>Home</NavLink>
         <NavLink to='/addcraft' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white  border-b-2 border-green-300  w-28 h-7 flex justify-center items-center text-sm' : 'font-bold w-28 h-7 flex justify-center items-center text-sm'}>Add Craft Item</NavLink>
         <NavLink to='/alladdcraft' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white   border-b-2 border-green-300  w-36 h-7 flex justify-center items-center text-sm' : 'font-bold w-36 h-7 flex justify-center items-center text-sm'}>All Art & Craft Item</NavLink>
-        <NavLink to='/myartcraft ' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white  border-b-2 border-green-300  w-28 h-7 flex justify-center items-center text-sm' : 'font-bold w-28 h-7 flex justify-center items-center text-sm'}>My Art & Craft</NavLink>
+        <NavLink to='/myartcrafts' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white  border-b-2 border-green-300  w-28 h-7 flex justify-center items-center text-sm' : 'font-bold w-28 h-7 flex justify-center items-center text-sm'}>My Art & Craft</NavLink>
     </>
     return (
         <div>
