@@ -67,14 +67,14 @@ const Updatecraft = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content grid grid-cols-1 p-3 ">
                     <div className="card shrink-0 lg:w-[650px]  md:w-[450px] shadow-2xl ">
-                        <h1 className="text-3xl text-center pt-5 font-bold text-sky-500">Update Craft Item!</h1>
+                        <h1 className="text-3xl text-center pt-5 font-bold text-sky-700">Update Craft Item!</h1>
                         <div className="card-body">
                             <form onSubmit={handelUpdate} >
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Item Name</span>
                                     </label>
-                                    <input type="text"  placeholder="Write.." name="item_name" className="input input-bordered" required />
+                                    <input type="text" defaultValue={loaderupdate.item_name} placeholder="Write.." name="item_name" className="input input-bordered" required />
                                 </div>
 
                                 <div className="form-control ">
@@ -97,7 +97,7 @@ const Updatecraft = () => {
                                     <label className="label">
                                         <span className="label-text">Short Description</span>
                                     </label>
-                                    <input type="text" placeholder="Write description"  name="short_description" className="input input-bordered" required />
+                                    <input type="text" defaultValue={loaderupdate.short_description} placeholder="Write description"  name="short_description" className="input input-bordered" required />
 
                                 </div>
 
@@ -105,7 +105,7 @@ const Updatecraft = () => {
                                     <label className="label">
                                         <span className="label-text">PhotoURL</span>
                                     </label>
-                                    <input type="text" placeholder="photoURL" name="photoURL" className="input input-bordered" required />
+                                    <input type="text" defaultValue={loaderupdate.photoURL} placeholder="photoURL" name="photoURL" className="input input-bordered" required />
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -113,19 +113,19 @@ const Updatecraft = () => {
                                         <label className="label">
                                             <span className="label-text">Price</span>
                                         </label>
-                                        <input type="text" placeholder="price" name="price" className="input input-bordered" required />
+                                        <input type="text" defaultValue={loaderupdate.price} placeholder="price" name="price" className="input input-bordered" required />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Rating</span>
                                         </label>
-                                        <input type="text" placeholder="rating" name="rating" className="input input-bordered " required />
+                                        <input type="text" defaultValue={loaderupdate.rating} placeholder="rating" name="rating" className="input input-bordered " required />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Customization</span>
                                         </label>
-                                        <input type="text" placeholder="Yes/No" name="customization" className="input input-bordered" required />
+                                        <input type="text" defaultValue={loaderupdate.customization} placeholder="Yes/No" name="customization" className="input input-bordered" required />
                                     </div>
 
                                 </div>
@@ -134,13 +134,13 @@ const Updatecraft = () => {
                                         <label className="label">
                                             <span className="label-text">Processing time</span>
                                         </label>
-                                        <input type="text" placeholder="Days" name="processing_time" className="input input-bordered" required />
+                                        <input type="text" defaultValue={loaderupdate?.processing_time} placeholder="Days" name="processing_time" className="input input-bordered" required />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Stock Status</span>
                                         </label>
-                                        <input type="text" placeholder="In stock/Made to Order" name="srock_status" className="input input-bordered" required />
+                                        <input type="text" defaultValue={loaderupdate.srock_status} placeholder="In stock/Made to Order" name="srock_status" className="input input-bordered" required />
                                     </div>
                                 </div>
 

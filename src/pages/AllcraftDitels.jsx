@@ -6,7 +6,7 @@ import { MdAccessTime } from "react-icons/md";
 
 const AllcraftDitels = () => {
     const allditels = useLoaderData()
-    const { name, email, item_name, subcategory_Name, short_description, photoURL, price, rating, customization, processing_time, srock_status } = allditels;
+    const {  item_name, subcategory_Name, short_description, photoURL, price, rating, customization, processing_time, srock_status } = allditels;
     // console.log(allditels);
 
     return (
@@ -48,8 +48,8 @@ const AllcraftDitels = () => {
 
 
                             <div className="flex flex-wrap flex-col md:flex-row justify-center gap-1 md:my-3">
-                                <p className=' p-1 px-3 '> Name: {name}</p>
-                                <p className=' rounded-md p-1 px-3'> Email: {email}</p>
+                                <p className=' p-1 px-3 '>  {allditels?.name }</p>
+                                <p className=' rounded-md p-1 px-3'> {allditels?.email}</p>
 
                             </div>
                         </div>

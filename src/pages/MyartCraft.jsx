@@ -64,7 +64,7 @@ const MyartCraft = () => {
                     emsearch.map(myct => 
 
                         <div key={myct._id} className="card h-[400px]  bg-base-100 shadow-xl">
-                            <figure><img src={myct.photoURL} alt="" /></figure>
+                            <figure><img  src={myct.photoURL} alt="" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title"> {myct.item_name} </h2>
                                 <p>Price: {myct.price}</p>
