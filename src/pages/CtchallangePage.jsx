@@ -8,7 +8,7 @@ const CtchallangePage = () => {
     console.log(ctchall)
     const[lists,setlistes]=useState([])
     useEffect(()=>{
-       fetch(`http://localhost:5000/categoriess/${ctchall?.subcategory_Name}`)
+       fetch(`https://craft-server-mocha.vercel.app/categoriess/${ctchall?.subcategory_Name}`)
        .then(res=>res.json())
        .then(data=>{
         console.log(data)

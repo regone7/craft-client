@@ -26,7 +26,7 @@ const AddCraft = () => {
         const infoCraft = { name, email, item_name, subcategory_Name, short_description, photoURL, price, rating, customization, processing_time, srock_status }
         console.log(infoCraft)
 
-        fetch('http://localhost:5000/craft', {
+        fetch('https://craft-server-mocha.vercel.app/craft', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

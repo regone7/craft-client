@@ -12,7 +12,7 @@ const MyartCraft = () => {
     // console.log(user?.email)
     const [users, setUsers] = useState(false)
     useEffect(() => {
-        fetch(`http://localhost:5000/crafts/${user?.email}`)
+        fetch(`https://craft-server-mocha.vercel.app/crafts/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
@@ -34,7 +34,7 @@ const MyartCraft = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/delete/${_id}`, {
+                fetch(`https://craft-server-mocha.vercel.app/delete/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

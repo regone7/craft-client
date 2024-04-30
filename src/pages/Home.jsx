@@ -5,7 +5,7 @@ import Contructus from "../components/Contructus";
 import Designstext from "../components/Designstext";
 import CategoriesArt from "../components/CategoriesArt";
 import Carditemsix from "../components/Carditemsix";
-import { Outlet } from "react-router-dom";
+
 
 const Home = () => {
     // const craftsix = useLoaderData()
@@ -21,13 +21,13 @@ const Home = () => {
             <div className="container mx-auto">
                 <h1 className="text-3xl text-center font-bold mt-5 mb-3">Craft Items</h1>
                 <div >
-                    <Carditemsix></Carditemsix>
+                    <Carditemsix></Carditemsix> 
                 </div>
             </div>
             <div>
                 <CategoriesArt></CategoriesArt>
             </div>
-            
+
             <div >
                 <UserReview></UserReview>
             </div>

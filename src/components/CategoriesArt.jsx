@@ -10,7 +10,7 @@ const CategoriesArt = () => {
             <div className='container mx-auto'>
                 <div className='grid grid-col-2 md:grid-cols-3 lg:grid-cols-6 gap-3 p-3 '>
                     {
-                        collss.slice(0, 6).map(coll => (
+                        collss.slice(0,6).map(coll => (
                             <div key={coll._id} className="card  bg-base-100 shadow-xl">
                                 <div className="card-body card-actions justify-start">
                                     <h2 className='text-center lg:text-sm flex justify-start lg:-ml-5'>{coll.subcategory_Name}</h2>

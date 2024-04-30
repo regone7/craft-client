@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/craft')
+        loader: () => fetch('https://craft-server-mocha.vercel.app/craft')
         
       },
       {
@@ -50,12 +50,12 @@ const router = createBrowserRouter([
       {
         path: "/alladdcraft",
         element: <Privateroutess><AllArtCraft></AllArtCraft></Privateroutess>,
-        loader: () => fetch('http://localhost:5000/craft')
+        loader: () => fetch('https://craft-server-mocha.vercel.app/craft')
       },
       {
         path: "/allcraftdtls/:id",
         element: <Privateroutess><AllcraftDitels></AllcraftDitels></Privateroutess>,
-        loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`)
+        loader: ({ params }) => fetch(`https://craft-server-mocha.vercel.app/craft/${params.id}`)
       },
       {
         path: "/myartcrafts",
@@ -65,13 +65,13 @@ const router = createBrowserRouter([
       {
         path: "/updatecrfts/:id",
         element: <Updatecraft></Updatecraft>,
-        loader: ({ params }) => fetch(`http://localhost:5000/craftss/${params.id}`)
+        loader: ({ params }) => fetch(`https://craft-server-mocha.vercel.app/craftss/${params.id}`)
 
       },
       {
         path: "/categoriesart",
         element: <CategoriesArt></CategoriesArt>,
-        loader: () => fetch('http://localhost:5000/categories')
+        loader: () => fetch('https://craft-server-mocha.vercel.app/categories')
 
 
       },
@@ -79,14 +79,14 @@ const router = createBrowserRouter([
       {
         path: "/ctchallanges",
         element: <CtchallangePage></CtchallangePage>,
-        loader: () => fetch('http://localhost:5000/categories')
+        loader: () => fetch('https://craft-server-mocha.vercel.app/categories')
 
 
       },
       {
         path: "/artcccct",
         element: <ArtceaftCaregory></ArtceaftCaregory>,
-        loader: () => fetch('http://localhost:5000/categories')
+        loader: () => fetch('https://craft-server-mocha.vercel.app/categories')
 
 
       },

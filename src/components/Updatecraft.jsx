@@ -14,7 +14,7 @@ const Updatecraft = () => {
     // const { id } = useParams()
     
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/craftss/${id}`)
+    //     fetch(`https://craft-server-mocha.vercel.app/craftss/${id}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             // console.log(data)
@@ -38,7 +38,7 @@ const Updatecraft = () => {
         const upinfo={ item_name, subcategory_Name, short_description, photoURL, price, rating, customization, processing_time, srock_status }
         console.log(upinfo)
         // console.log(id)
-        fetch(`http://localhost:5000/updatesinfo/${loaderupdate._id}`,{
+        fetch(`https://craft-server-mocha.vercel.app/updatesinfo/${loaderupdate._id}`,{
             method:'PUT',
             headers: {
                 'content-type': 'application/json'
