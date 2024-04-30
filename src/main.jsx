@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/alladdcraft",
-        element: <AllArtCraft></AllArtCraft>,
+        element: <Privateroutess><AllArtCraft></AllArtCraft></Privateroutess>,
         loader: () => fetch('http://localhost:5000/craft')
       },
       {
