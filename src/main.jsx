@@ -19,6 +19,7 @@ import MyartCraft from './pages/MyartCraft.jsx';
 import Updatecraft from './components/Updatecraft.jsx';
 import Privateroutess from './privateroutes/Privateroutess.jsx';
 import CategoriesArt from './components/CategoriesArt.jsx';
+import CtchallangePage from './pages/CtchallangePage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -62,14 +63,20 @@ const router = createBrowserRouter([
       {
         path: "/updatecrfts/:id",
         element: <Updatecraft></Updatecraft>,
-        loader:({params})=> fetch(`http://localhost:5000/craftss/${params.id}`)
-        
+        loader:({params})=> fetch(`http://localhost:5000/craftss/${params.id}`) 
         
       },
       {
         path: "/categoriesart",
         element: <CategoriesArt></CategoriesArt>,
         loader: ()=> fetch('http://localhost:5000/categories'),
+        
+        
+      },
+      {
+        path: "/ctchallanges",
+        element: <CtchallangePage></CtchallangePage>,
+        loader:()=> fetch('http://localhost:5000/categories')
         
         
       },

@@ -48,8 +48,8 @@ const AllcraftDitels = () => {
 
 
                             <div className="flex flex-wrap flex-col md:flex-row justify-center gap-1 md:my-3">
-                                <p className=' p-1 px-3 '>  {allditels?.name }</p>
-                                <p className=' rounded-md p-1 px-3'> {allditels?.email}</p>
+                                <p className=' p-1 px-3 '> Nmae: {allditels?.name }</p>
+                                <p className=' rounded-md p-1 px-3'> Email: {allditels?.email}</p>
 
                             </div>
                         </div>
