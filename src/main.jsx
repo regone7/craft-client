@@ -20,17 +20,20 @@ import Updatecraft from './components/Updatecraft.jsx';
 import Privateroutess from './privateroutes/Privateroutess.jsx';
 import CategoriesArt from './components/CategoriesArt.jsx';
 import CtchallangePage from './pages/CtchallangePage.jsx';
+import Carditemsix from './components/Carditemsix.jsx';
+import ArtceaftCaregory from './pages/ArtceaftCaregory.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<Errorpage></Errorpage>,
+    errorElement: <Errorpage></Errorpage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
         loader: () => fetch('http://localhost:5000/craft')
+        
       },
       {
         path: "/login",
@@ -44,7 +47,6 @@ const router = createBrowserRouter([
         path: "/addcraft",
         element: <Privateroutess><AddCraft></AddCraft></Privateroutess>,
       },
-      
       {
         path: "/alladdcraft",
         element: <AllArtCraft></AllArtCraft>,
@@ -53,35 +55,43 @@ const router = createBrowserRouter([
       {
         path: "/allcraftdtls/:id",
         element: <Privateroutess><AllcraftDitels></AllcraftDitels></Privateroutess>,
-        loader:({params})=> fetch(`http://localhost:5000/craft/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`)
       },
       {
         path: "/myartcrafts",
         element: <Privateroutess><MyartCraft></MyartCraft></Privateroutess>,
-        
+
       },
       {
         path: "/updatecrfts/:id",
         element: <Updatecraft></Updatecraft>,
-        loader:({params})=> fetch(`http://localhost:5000/craftss/${params.id}`) 
-        
+        loader: ({ params }) => fetch(`http://localhost:5000/craftss/${params.id}`)
+
       },
       {
         path: "/categoriesart",
         element: <CategoriesArt></CategoriesArt>,
-        loader: ()=> fetch('http://localhost:5000/categories'),
-        
-        
+        loader: () => fetch('http://localhost:5000/categories')
+
+
       },
+     
       {
         path: "/ctchallanges",
         element: <CtchallangePage></CtchallangePage>,
-        loader:()=> fetch('http://localhost:5000/categories')
-        
-        
+        loader: () => fetch('http://localhost:5000/categories')
+
+
       },
-      
-      
+      {
+        path: "/artcccct",
+        element: <ArtceaftCaregory></ArtceaftCaregory>,
+        loader: () => fetch('http://localhost:5000/categories')
+
+
+      },
+
+
     ],
   },
 ]);
