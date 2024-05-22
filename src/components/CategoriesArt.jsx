@@ -16,7 +16,7 @@ const CategoriesArt = () => {
                                     <h2 className='text-center lg:text-sm flex justify-start lg:-ml-5'>{coll.subcategory_Name}</h2>
                                     <p className='text-center'>{coll.item_name}</p>
                                 </div>
-                                <figure><img src={coll.photoURL} alt="" /></figure>
+                                <figure><img className='w-full h-[100px]' src={coll.photoURL} alt="" /></figure>
                             </div>
                         ))
                     }
