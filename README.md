@@ -13,3 +13,5 @@
 selected category Painting and Drawing (Landscape Painting,Portrait Drawing,Watercolour Painting,Oil Painting,Charcoal Sketching,Cartoon Drawing)
 
 live website link: https://art-craft-b287c.web.app
+
+Technology - React, React Router, Tailwind CSS, daisyUI, Firebase, Express.js, MongoDB
